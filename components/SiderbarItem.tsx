@@ -1,11 +1,38 @@
-import React from 'react'
+import { SidebarItemProps } from "@/types/types";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
-const SiderbarItem = () => {
+const SiderbarItem: React.FC<SidebarItemProps> = ({
+  icon:Icon,
+  label,
+  active,
+  href,
+}) => {
   return (
-    <div>
-      Siderbar Item
-    </div>
-  )
-}
+    <Link
+      href={href}
+      className={twMerge(
+        `
+       flex
+       flex-row
+       items-center
+       w-full
+       gap-x-4
+       text-md
+       font-medium
+       cursor-pointer
+       hover:text-white
+       transition
+       text-neutral-400
+       py-1
+    `,
+        active && "text-white"
+      )}
+    >
+      <Icon size={26}/>
+      <p className="truncate w-full">{label}</p>
+    </Link>
+  );
+};
 
-export default SiderbarItem
+export default SiderbarItem;
