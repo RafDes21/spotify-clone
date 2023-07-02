@@ -2,12 +2,10 @@
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import Box from "./Box";
+import { ChildrenProps } from "@/types/types";
+import SiderbarItem from "./SiderbarItem";
 
-interface SidebarProps {
-  children: React.ReactNode;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+const Sidebar: React.FC<ChildrenProps> = ({ children }) => {
   const pathname = usePathname();
 
   const routes = useMemo(
@@ -29,9 +27,23 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   return (
     <div className="flex h-full">
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
-        <Box>
-          siber navigation
+        <Box
+          className="
+          flex
+          flex-col
+          gap-y-4
+          px-5
+          py-4
+        "
+        >
+          {routes.map((item) => (
+            <SiderbarItem 
+            key={item.label}
+            {...item}
+            />
+          ))}
         </Box>
+        <Box className="overflow-y-auto h-full">Song Library</Box>
       </div>
     </div>
   );
