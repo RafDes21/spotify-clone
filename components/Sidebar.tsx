@@ -6,6 +6,7 @@ import { ChildrenProps } from "@/types/types";
 import SiderbarItem from "./SiderbarItem";
 import {HiHome} from "react-icons/hi"
 import {BiSearch} from "react-icons/bi"
+import Library from "./Library";
 
 const Sidebar: React.FC<ChildrenProps> = ({ children }) => {
   const pathname = usePathname();
@@ -47,9 +48,11 @@ const Sidebar: React.FC<ChildrenProps> = ({ children }) => {
             />
           ))}
         </Box>
-        <Box className="overflow-y-auto h-full">Song Library</Box>
+        <Box className="overflow-y-auto h-full">
+          <Library/>
+        </Box>
       </div>
-      <main>
+      <main className="h-full flex-1 overflow-y-auto py-2">
         {children}
       </main>
     </div>
