@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <div
       className="
-   bg-neutral-900
-   rounded-lg
-   h-full
-   w-full
-   overflow-hidden
-   overflow-y-auto
-   "
+    bg-neutral-900
+    rounded-lg
+    h-full
+    w-full
+    overflow-hidden
+    overflow-y-auto
+    "
     >
       <Header>
         <h1
@@ -34,9 +34,19 @@ export default function Home() {
         mt-4
         "
         >
-          <ListItem/>
+          <ListItem image="/images/liked.png" name="liked songs" href="liked" />
         </div>
       </Header>
+      <div className="mt-2 mb-7 px-6">
+        <div className="flex justify-between items-center">
+          <h1 className="text-white text-2xl font-semibold">
+            New Songs
+          </h1>
+        </div>
+        <div>
+          List of songs
+        </div>
+      </div>
     </div>
   );
 }

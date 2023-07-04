@@ -11,3 +11,9 @@ export interface SidebarItemProps{
     active?: boolean;
     href:string
 }
+
+export interface ListItemProps{
+    image: string;
+    name:string;
+    href:string;
+}
